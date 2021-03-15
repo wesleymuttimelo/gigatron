@@ -88,7 +88,9 @@
                 type: 'DELETE',
                 success: function (result) {
                     // Do something with the result
-                    console.log(result);
+                    if(result == 1){
+                        window.location = '/';
+                    }
                 }
             });
         }

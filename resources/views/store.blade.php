@@ -25,7 +25,7 @@
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="inputDocument">Cpf</label>
-                                    <input type="text" name="document" class="form-control" id="inputDocument" required>
+                                    <input type="text" name="document" class="form-control" id="inputDocument" data-mask="00/00/0000" required>
                                 </div>
                                 <div class="form-group col-md-2">
                                     <label for="inputRg">Rg</label>
@@ -67,12 +67,17 @@
             </div>
         </div>
     </div>
+
+    <script src="{{asset('js/jquery.mask.min.js')}}"></script>
     <script>
+        $(document).ready(function($){
+            $("#inputDocument").mask('000.000.000-00', {reverse: true});
+            $('#inputCep').mask('00000-000');
+        });
         $('#inputCep').change(()=>{
             cep = $('#inputCep').val()
             if(cep){
                 $.getJSON(`https://viacep.com.br/ws/${cep}/json/`, function(data){
-                    console.log(data)
                     if(data){
                         $('#inputStreet').val(data.logradouro)
                         $('#inputNeighborhood').val(data.bairro)

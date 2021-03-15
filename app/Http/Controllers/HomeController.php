@@ -8,7 +8,11 @@ use Illuminate\Support\Facades\DB;
 class HomeController extends Controller
 {
     public function index(){
-       $employees = DB::table('employee')->paginate(15);
+       $employees = DB::table('employee')
+           ->where([
+               ['deleted_at','=',NULL]
+           ])
+           ->paginate(15);
         return view('employee',['employees'=>$employees]);
     }
 }

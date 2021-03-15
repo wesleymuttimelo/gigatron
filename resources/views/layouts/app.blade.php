@@ -15,6 +15,8 @@
     <!-- Jquery -->
     <script src="{{asset('js/jquery-3.6.0.min.js')}}"></script>
 
+    <script src="{{asset('js/jquery.mask.min.js')}}"></script>
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
